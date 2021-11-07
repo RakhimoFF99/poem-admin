@@ -1,0 +1,32 @@
+{
+  "name": "carwash-admin",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@nuxtjs/auth-next": "^5.0.0-1624817847.21691f1",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/toast": "^3.3.1",
+    "core-js": "^3.15.1",
+    "dateformat": "^5.0.2",
+    "element-ui": "^2.15.2",
+    "epic-spinners": "^1.1.0",
+    "nuxt": "^2.15.7",
+    "v-ripple-effect": "^1.2.0",
+    "vue-toastification": "^1.7.14",
+    "vuelidate": "^0.7.6"
+  },
+  "devDependencies": {
+    "vuepress": "1.4.0",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@nuxtjs/fontawesome": "^1.1.2"
+  }
+}
