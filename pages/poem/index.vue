@@ -21,7 +21,7 @@
                     <th>Sarlavha</th>
                     <th>Sher</th>
                     <th>Kategoriya</th>
-                    <th>Sana</th>
+                    <th>Qo'shilgan Sana</th>
                     <th></th>
                     <th></th>
                   </tr>
@@ -43,7 +43,12 @@
                     <td >{{item.serviceType}}</td>
                     <td>
                       <div class="d-flex align-content-center">
-                        <el-button class="py-0 px-2 " style="margin-right:3px"> <nuxt-link to=""><fa icon="pen" class="text-dark" /></nuxt-link>  </el-button>
+                        <el-button class="py-0 px-2 " style="margin-right:3px"> 
+                        <nuxt-link :to="{
+                            name:'poem-edit-id',
+                            params:{id:item._id}
+                        }">
+                        <fa icon="pen" class="text-dark" /></nuxt-link>  </el-button>
                         <el-popconfirm
                           
                           confirm-button-text="Xa"

@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex px-2">
-              <h3 class="card-title my-0">Sher qo'shish</h3>
+              <h3 class="card-title my-0">Sherni o'zgartirish</h3>
             </div>
             <div class="container mt-3">
               <div class="row">
@@ -23,14 +23,16 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="username">Sher kategoriyasi</label>
-
+                 
                     <el-select
                       v-model="poem.categoryId"
+                      :selected="poem.name"
                       placeholder="Kategoriyani tanlang"
                     >
                       <el-option
                         v-for="item in categories"
                         :key="item._id"
+    
                         :label="item.name"
                         :value="item._id"
                       >
@@ -52,7 +54,7 @@
                 </div>
               </div>
               <div class="d-flex mt-3 justify-content-end px-5">
-                <el-button type="primary" @click="createPoem"
+                <el-button type="primary" @click="updatePoem"
                   >Saqlash</el-button
                 >
               </div>
@@ -79,11 +81,20 @@ export default {
         let category = await this.$axios.get('category/getCategories')
         this.categories = category.data
       },
-     async createPoem () {
+      async getPoemById () {
+        const response = await this.$axios.get(`poem/get/${this.$route.params.id}`)
+        if(response) {
+          this.poem = response.data.data
+          this.poem.categoryId = response.data.data.categoryId._id
+        }
+        
+      },
+
+     async updatePoem () {
        try {
-  const response = await this.$axios.post('poem/add',this.poem)
+      const response = await this.$axios.put(`poem/edit/${this.$route.params.id}`,this.poem)
       if(response.data.success) {
-          this.$toast.success("Sher mufaqqiyatli qo'shildi")
+          this.$toast.success("Sher mufaqqiyatli o'zgartirildi")
           this.$router.push('/poem')
       }
        }
@@ -95,6 +106,8 @@ export default {
   },
   mounted() {
     this.getAllCategories()
+    this.getPoemById()
+
   }
 };
 </script>
