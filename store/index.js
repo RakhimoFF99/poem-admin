@@ -1,5 +1,6 @@
 export const state = () => ({
     isLoading: false,
+    poem:"asdasdsad"
    
 });
 
@@ -12,6 +13,10 @@ export const mutations = {
     },
     userCount(state, data) {
         state.userCount = data;
+    },
+    setPoem (state,data) {
+        console.log("dsdsd")
+        state.poem = data
     }
 };
 //Action

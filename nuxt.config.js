@@ -51,7 +51,7 @@ export default {
   ],
   axios: {
     // baseURL: "http://e842a3dd150b.ngrok.io/api/",
-    baseURL: "http://localhost:5200/api/"
+    baseURL: "https://poem-backend-app.herokuapp.com/api/"
     // baseURL: "http://ass.tujjor.org/api/",
     // baseURL: 'http://media.huquqiyportal.uz/api',
     // baseURL: "http://localhost:3301/api"

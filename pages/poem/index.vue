@@ -27,12 +27,17 @@
                   </tr>
                 </thead>
                 <tbody>
+                 
                   <tr v-for="(item,i) in poem" :key="item._id">
                     <td>{{i + 1}}</td>
                  
                     <td>{{ item.name }}</td>
-                    <td>
-                      {{ item.poem }}
+                    <td >
+                    <div class="poem">
+                           {{ item.poem }}
+                    </div>
+               
+                    
                     </td>
                         <td>
                         {{item.categoryId.name}}
@@ -40,9 +45,17 @@
                     <td>
                       {{ dateFormat(item.orderTime) }}
                     </td>
-                    <td >{{item.serviceType}}</td>
+
                     <td>
+                   
                       <div class="d-flex align-content-center">
+                        <el-button  class="py-0 px-2 "> 
+                        <nuxt-link
+                        :to="{
+                            name:'poem-read-id',
+                            params:{id:item._id}
+                        }">
+                        <fa @click="$store.commit('setPoem',item)" icon="search" class="text-dark" /></nuxt-link>  </el-button>
                         <el-button class="py-0 px-2 " style="margin-right:3px"> 
                         <nuxt-link :to="{
                             name:'poem-edit-id',
@@ -106,6 +119,7 @@ export default {
     }
   },
   mounted(){
+
       this.getAllPoem()
   }
   
@@ -117,5 +131,13 @@ td {
   font-size: 12px;
   padding: 10px;
 }
+.poem {
+    display: block;
+  max-width:220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 </style>
